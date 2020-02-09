@@ -15,7 +15,6 @@ public class Main_1707_이분그래프 {
 		
 		for(int i=0;i<V;i++) {
 			if(n != i && graph[n][i] && !v[i]) {
-				check(i);
 			}
 		}
 		
