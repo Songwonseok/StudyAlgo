@@ -65,45 +65,36 @@ public class Main_16985_Maaaaaaaaaze {
 		for (int i = 0; i < 5; i++)
 			for (int j = 0; j < comb[perm[i]]; j++)
 				temp[i] = rotation(temp[i]);
-		
-		int[] startx = {0,4,0,4}, starty = {0,0,4,4};
-		
-		for (int i = 0; i < 4; i++) {// 출입구 4번 [0][0][0] -> [4][4][4];
-			int sx =startx[i];
-			int sy =starty[i];
-			int ex = 4-startx[i];
-			int ey = 4-starty[i];
-			if (temp[0][sx][sy] == 0 || temp[4][ex][ey] == 0)
-				continue;
 
-			Queue<int[]> que = new LinkedList<>();
-			boolean[][][] v = new boolean[5][5][5];
+		if (temp[0][0][0] == 0 || temp[4][4][4] == 0)
+			return;
 
-			que.add(new int[] { 0, sx, sy, 0 }); // z,x,y,cnt
-			v[0][sx][sy] = true;
+		Queue<int[]> que = new LinkedList<>();
+		boolean[][][] v = new boolean[5][5][5];
 
-			while (!que.isEmpty()) {
-				int[] curr = que.poll();
-				if (curr[3] > min)
-					break;
+		que.add(new int[] { 0, 0, 0, 0 }); // z,x,y,cnt
+		v[0][0][0] = true;
 
-				if (curr[0] == 4 && curr[1] == ex && curr[2] == ey) {
-					min = Math.min(min, curr[3]);
-					break;
-				}
+		while (!que.isEmpty()) {
+			int[] curr = que.poll();
+			if (curr[3] > min)
+				break;
 
-				for (int dir = 0; dir < dx.length; dir++) {
-					int nx = curr[1] + dx[dir];
-					int ny = curr[2] + dy[dir];
-					int nz = curr[0] + dz[dir];
-					if (nz >= 0 && nz < 5 && nx >= 0 && nx < 5 && ny >= 0 && ny < 5 && !v[nz][nx][ny]
-							&& temp[nz][nx][ny] == 1) {
-						v[nz][nx][ny] = true;
-						que.add(new int[] { nz, nx, ny, curr[3] + 1 });
-					}
-				}
+			if (curr[0] == 4 && curr[1] == 4 && curr[2] == 4) {
+				min = Math.min(min, curr[3]);
+				break;
 			}
 
+			for (int dir = 0; dir < dx.length; dir++) {
+				int nx = curr[1] + dx[dir];
+				int ny = curr[2] + dy[dir];
+				int nz = curr[0] + dz[dir];
+				if (nz >= 0 && nz < 5 && nx >= 0 && nx < 5 && ny >= 0 && ny < 5 && !v[nz][nx][ny]
+						&& temp[nz][nx][ny] == 1) {
+					v[nz][nx][ny] = true;
+					que.add(new int[] { nz, nx, ny, curr[3] + 1 });
+				}
+			}
 		}
 
 	}
