@@ -2,7 +2,7 @@ package BlockChain;
 
 import java.util.ArrayList;
 
-public class GetMining {
+public class Main {
 
 	public static void main(String[] args) {
 		
