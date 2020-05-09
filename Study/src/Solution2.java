@@ -4,7 +4,7 @@ public class Solution2 {
 	static int result=0;
 	static int[] ar;
 	
-	//기간, 물건개수, 연속된 길이, 최대개수
+	//기간, 물건개수, 연속된 길이,최대개수
 	public static void solve(int r, int total, int length, int max) {
 		if(r== ar.length ) {
 			if(total==0) {
