@@ -1,0 +1,17 @@
+package Metanet;
+
+public class SQL {
+
+	
+//
+//	SELECT EMPOYEE_ID, SUM(PRICE) 매출액 FROM SELLINGS 
+//	GROUP BY EMPOYEE_ID
+//	HAVING COUNT(*) = 
+//	(SELECT COUNT(*) COUNTS 
+//			FROM SELLINGS 
+//			GROUP BY EMPOYEE_ID 
+//			ORDER BY COUNTS DESC 
+//			LIMIT 1)
+//	ORDER BY 매출액 DESC
+//	LIMIT 1;
+}
