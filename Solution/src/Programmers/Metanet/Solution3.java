@@ -1,4 +1,4 @@
-package Metanet;
+package Programmers.Metanet;
 
 public class Solution3 {
 	static int min;

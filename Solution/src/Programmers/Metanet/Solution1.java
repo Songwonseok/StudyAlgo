@@ -1,4 +1,4 @@
-package Metanet;
+package Programmers.Metanet;
 
 import java.util.Arrays;
 

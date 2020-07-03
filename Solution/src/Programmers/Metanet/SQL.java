@@ -1,10 +1,10 @@
-package Metanet;
+package Programmers.Metanet;
 
 public class SQL {
 
 	
 //
-//	SELECT EMPOYEE_ID, SUM(PRICE) 매출액 FROM SELLINGS 
+//	SELECT EMPOYEE_ID, SUM(PRICE) 留ㅼ텧�븸 FROM SELLINGS 
 //	GROUP BY EMPOYEE_ID
 //	HAVING COUNT(*) = 
 //	(SELECT COUNT(*) COUNTS 
@@ -12,6 +12,6 @@ public class SQL {
 //			GROUP BY EMPOYEE_ID 
 //			ORDER BY COUNTS DESC 
 //			LIMIT 1)
-//	ORDER BY 매출액 DESC
+//	ORDER BY 留ㅼ텧�븸 DESC
 //	LIMIT 1;
 }

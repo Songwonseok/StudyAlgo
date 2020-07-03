@@ -1,4 +1,4 @@
-package kakao;
+package Programmers.kakao;
 
 import java.util.Arrays;
 
