@@ -1,5 +1,8 @@
 package Programmers.practice;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class DFS_네트워크 {
 	public void DFS(int start,int[][] computers, boolean[] v){
         v[start] = true;
@@ -18,10 +21,13 @@ public class DFS_네트워크 {
                 answer++;
             }
         }
+        
         return answer;
     }
+    
 	public static void main(String[] args) {
 
+		Queue<int[]> a = new LinkedList<>();
 		
 	}
 
