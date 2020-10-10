@@ -5,19 +5,14 @@ import java.util.*;
 
 public class Main_1756_피자굽기 {
 	static int[] oven, pizza;
-	static int bottom;
 	public static int binarySearch(int st, int end, int value) {
-		
+		if (end <= 0) 
+			return -1;
 		if(end - st == 1) {
-			if(oven[end] >= value) {
-				bottom = end -1;
-				return end + 1;
-			}else if(oven[st] >= value) {
-				bottom = st -1;
-				return st + 1;
-			}else {
-				return -1;
-			}
+			if(oven[st] >= value) 
+				return st;
+			return -1;
+			
 		}
 		
 		int mid = (st+end) /2;
@@ -54,18 +49,13 @@ public class Main_1756_피자굽기 {
 			pizza[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		bottom = D-1;
-		int floor = 0;
+		int bottom = D;
 		for(int i=0;i<N;i++) {
 			
-			floor = binarySearch(0,bottom,pizza[i]);
-			if(floor == -1) {
-				floor = 0;
-				break;
-			}
+			bottom = binarySearch(0,bottom,pizza[i]);
 		}
 		
-		System.out.println(floor);
+		System.out.println(bottom+1);
 	}
 
 }
