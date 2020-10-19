@@ -3,7 +3,7 @@ package baek;
 import java.io.*;
 import java.util.*;
 
-public class Main_1516_게임개발_DP {
+public class Main_1516_게임개발_01 {
 	static int[] memo;
 	static Building[] buildings;
 	static int N;
