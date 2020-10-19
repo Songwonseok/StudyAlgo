@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 //180ms
-public class Main_B4485_녹색옷입은애가젤다지_김태희 {
+public class Main_4485_녹색옷입은애가젤다지_김태희강사님 {
 
 	static int N, M;
 	static int[][] map;

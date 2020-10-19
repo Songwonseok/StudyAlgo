@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Main_B4485_녹색옷입은애가젤다지_dijk {
+public class Main_4485_녹색옷입은애가젤다지_dijk {
 	static class Node implements Comparable<Node> {
 		int i;
 		int j;
