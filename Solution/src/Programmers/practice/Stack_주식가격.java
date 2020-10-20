@@ -11,13 +11,12 @@ public class Stack_주식가격 {
 		
 		Stack<Integer> stack = new Stack();
 		int time =0;
-		for(int i=0;i<N;i++) {
-			while(!stack.isEmpty() && prices[i] < prices[stack.peek()]) {
+		for(time=0;time<N;time++) {
+			while(!stack.isEmpty() && prices[time] < prices[stack.peek()]) {
 				int idx = stack.pop();
 				answer[idx] = time - idx; 
 			}
-			stack.push(i);
-			time++;
+			stack.push(time);
 		}
 		
 		while(!stack.isEmpty()) {
