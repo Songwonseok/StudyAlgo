@@ -1,17 +1,9 @@
 package Goorm.NHN;
 import java.util.*;
 
-/*
- * 
- * 
- * 
- * 
- */
-
 public class 모의평가 {
 	private static void solution(int sizeOfMatrix, int[][] matrix) {
 		int[] dx = {-1,1,0,0}, dy = {0,0,-1,1}; // 상하좌우
-    // TODO: 이곳에 코드를 작성하세요.
 		ArrayList<Integer> list = new ArrayList<>();
 		for(int i=0;i<sizeOfMatrix;i++){
 			for(int j=0;j<sizeOfMatrix;j++){
@@ -57,7 +49,6 @@ public class 모의평가 {
 	else{
 		System.out.println(list.size());
 	}
-		
   }
   
   private static class InputData {
