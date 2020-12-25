@@ -23,9 +23,6 @@ public class Main_11728_배열합치기 {
 			rightArray[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		Arrays.sort(leftArray);
-		Arrays.sort(rightArray);
-		
 		int idx=0, leftIdx=0, rightIdx = 0;
 		while(leftIdx < N && rightIdx < M) {
 			if(leftArray[leftIdx] <= rightArray[rightIdx]) {
@@ -40,7 +37,7 @@ public class Main_11728_배열합치기 {
 		StringBuilder sb = new StringBuilder();
 		
 		for(int num: answer) {
-			sb.append(Integer.toString(num)+" ");
+			sb.append(num).append(" ");
 		}
 		System.out.println(sb);
 	}
