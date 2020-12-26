@@ -1,13 +1,9 @@
 package SSAFY.Graph;
-
 import java.io.FileInputStream;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
-
-import graph.DfsLiked.Node;
-
 
 public class BfsLinked {
 	public static class Node{
