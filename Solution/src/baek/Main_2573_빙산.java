@@ -6,9 +6,8 @@ import java.util.*;
 public class Main_2573_빙산 {
 	static int N,M;
 	static int[] dx = {-1,0,1,0}, dy = {0,1,0,-1};
-	static ArrayList<int[][]> icebergList;
 	
-	
+	// 빙산 녹이기
 	public static int[][] meltingIceberg(int[][] iceberg){
 		int[][] nextYear = new int[N][M];
 		
@@ -28,10 +27,10 @@ public class Main_2573_빙산 {
 			}
 		}
 		
-		
 		return nextYear;
 	}
 	
+	// 빙산 갯수 세기
 	public static int countingIcebergs(int[][] iceberg) {
 		boolean[][] visit = new boolean[N][M];
 		int count = 0;
@@ -71,31 +70,30 @@ public class Main_2573_빙산 {
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
 		
-		int[][] init = new int[N][M];
+		int[][] iceberg = new int[N][M];
 		
 		for(int i=0;i<N;i++) {
 			st = new StringTokenizer(br.readLine());
 			for(int j=0;j<M;j++) {
-				init[i][j] = Integer.parseInt(st.nextToken());
+				iceberg[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
 		
 		int years = 0;
-		icebergList = new ArrayList<int[][]>();
-		icebergList.add(init);
 		
 		while(true) {
-			int[][] currIceberg = icebergList.get(years);
-			int countIceberg = countingIcebergs(currIceberg);
+			int countIceberg = countingIcebergs(iceberg);
 			if(countIceberg == 0) {
+				// 빙산이 다 녹음
 				System.out.println(0);
 				return;
 			}else if(countIceberg >= 2) {
+				// 빙산이 2개 이상으로 나눠짐
 				System.out.println(years);
 				return;
 			}else if(countIceberg == 1){
-				int[][] meltedIceberg = meltingIceberg(currIceberg);
-				icebergList.add(meltedIceberg);
+				// 아직 빙산이 나눠지지 않음
+				iceberg = meltingIceberg(iceberg);
 				years++;
 			}
 		}
