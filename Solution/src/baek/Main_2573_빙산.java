@@ -93,7 +93,7 @@ public class Main_2573_빙산 {
 				return;
 			}else if(countIceberg == 1){
 				// 아직 빙산이 나눠지지 않음
-				iceberg = meltingIceberg(iceberg);
+				int[][] meltedIceberg = meltingIceberg(iceberg);
 				years++;
 			}
 		}
