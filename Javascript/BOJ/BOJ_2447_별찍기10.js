@@ -1,6 +1,6 @@
 const fs = require('fs');
 // const inputs = fs.readFileSync('./dev/stdin').toString().split("\n");
-const inputs = fs.readFileSync('./BOJ/input/input.txt').toString().split('\r\n');
+// const inputs = fs.readFileSync('./BOJ/input/input.txt').toString().split('\r\n');
 
 const drawEmpty = (board, startX, startY, size) => {
   for (let x = startX; x < startX + size; x++) {
@@ -29,7 +29,8 @@ const partition = (board, startX, startY, N) => {
 
 
 const Main = () => {
-  const N = parseInt(inputs[0]);
+  // const N = parseInt(inputs[0]);
+  const N = 1;
   const board = new Array(N).fill(0).map(el => new Array(N));
 
   partition(board, 0, 0, N);
