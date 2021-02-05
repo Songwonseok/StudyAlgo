@@ -3,38 +3,49 @@ package baek;
 import java.io.*;
 import java.util.*;
 public class Main_1916_최소비용구하기 {
-	static int INF = Integer.MAX_VALUE/2;
-	static int N, M;
+	static int N,M;
+	static int INF = Integer.MAX_VALUE;
 	static int[][] graph;
-	public static int getSamllIndex(int start, boolean[] visit) {
+	
+	public static int getMinIndex(int[] distance, boolean[] visit) {
+		int minIndex = -1;
 		int min = INF;
-		int idx = start;
+		
 		for(int i=1;i<=N;i++) {
-			if(!visit[i] && graph[start][i] != 0){
-				if(graph[start][i] < min) {
-					min = graph[start][i];
-					idx = i;
+			if(!visit[i] && distance[i] != INF) {
+				if(distance[i] < min) {
+					min = distance[i];
+					minIndex = i;
 				}
 			}
 		}
-		return idx;
+		
+		return minIndex;
 	}
 	
-	public static void dijkstra(int start) {
-		boolean[] visit = new boolean[N+1];
-		graph[start][start] = 0;
+	public static int dijkstra(int start, int end){
+		boolean[] visit= new boolean[N+1];
+		int[] distance = new int[N+1];
 		
-		int idx = start;
+		for(int i=1;i<=N;i++) {
+			distance[i] = graph[start][i];
+		}
+		
+		distance[start] = 0;
+		visit[start] = true;
+		
 		for(int i=0;i<N-1;i++) {
-			int minIdx = getSamllIndex(idx, visit);
-			visit[minIdx] = true;
-			
-			for(int j=1;j<N+1;j++) {
-				if(minIdx != j) {
-					graph[start][j] = Math.min(graph[start][minIdx] + graph[minIdx][j], graph[start][j]);
+			int minIndex = getMinIndex(distance, visit);
+			if(minIndex == -1) break;
+			visit[minIndex] = true;
+			for(int j=1;j<=N;j++) {
+				if(!visit[j] && graph[minIndex][j] != INF) {
+					distance[j] = Math.min(distance[minIndex] + graph[minIndex][j], distance[j]);
 				}
 			}
 		}
+		
+		return distance[end];
 	}
 	
 	public static void main(String[] args) throws Exception {
@@ -43,20 +54,19 @@ public class Main_1916_최소비용구하기 {
 		M = Integer.parseInt(br.readLine());
 		
 		graph = new int[N+1][N+1];
-
-		for(int i=1;i<=N;i++)
+		
+		for(int i=1;i<=N;i++) {
 			Arrays.fill(graph[i], INF);
+		}
 		
 		for(int i=0;i<M;i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			int s = Integer.parseInt(st.nextToken());
-			int e = Integer.parseInt(st.nextToken());
-			int p = Integer.parseInt(st.nextToken());
+			int from = Integer.parseInt(st.nextToken());
+			int to = Integer.parseInt(st.nextToken());
+			int weight = Integer.parseInt(st.nextToken());
 			
-			if(graph[s][e] != 0) {
-				graph[s][e] = Math.min(graph[s][e], p);
-			}else {
-				graph[s][e] = p;
+			if(graph[from][to] > weight) {
+				graph[from][to] = weight;
 			}
 		}
 		
@@ -65,8 +75,8 @@ public class Main_1916_최소비용구하기 {
 		int start = Integer.parseInt(st.nextToken());
 		int end = Integer.parseInt(st.nextToken());
 		
-		dijkstra(start);
+		int answer = dijkstra(start, end);
 		
-		System.out.println(graph[start][end]);
+		System.out.println(answer);
 	}
 }
