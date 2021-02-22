@@ -21,6 +21,7 @@ public class Main_1002_터렛 {
 
 			double distance = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
 			int differ_r = Math.abs(r1 - r2);
+			
 			if (distance == 0 && r1 == r2) {
 				answer.append(-1).append("\n");
 			} else if (r1 + r2 == distance || differ_r == distance) {
