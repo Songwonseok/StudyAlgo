@@ -20,43 +20,24 @@ public class Main_1991_트리순회 {
 	}
 
 	public static void preorder(StringBuilder sb, Node curr) {
+		if(curr == null) return;
 		sb.append(curr.name);
-		if(curr.left != null) {
-			preorder(sb, curr.left);
-		}
-		if(curr.right != null) {
-			preorder(sb, curr.right);
-		}
+		preorder(sb, curr.left);
+		preorder(sb, curr.right);
 	}
 
 	public static void inorder(StringBuilder sb, Node curr) {
-		if(curr.left == null && curr.right == null) {
-			sb.append(curr.name);
-			return;
-		}
-		
-		if(curr.left != null) {
-			inorder(sb, curr.left);
-		}
+		if(curr == null) return;
+		inorder(sb, curr.left);
 		sb.append(curr.name);
-		if(curr.right != null) {
-			inorder(sb, curr.right);
-		}
+		inorder(sb, curr.right);
 		
 	}
 
 	public static void postorder(StringBuilder sb, Node curr) {
-		if(curr.left == null && curr.right == null) {
-			sb.append(curr.name);
-			return;
-		}
-		
-		if(curr.left != null) {
-			postorder(sb, curr.left);
-		}
-		if(curr.right != null) {
-			postorder(sb, curr.right);
-		}
+		if(curr == null) return;
+		postorder(sb, curr.left);
+		postorder(sb, curr.right);
 		sb.append(curr.name);
 	}
 
@@ -95,13 +76,11 @@ public class Main_1991_트리순회 {
 		Node root = map.get("A");
 		
 		StringBuilder answer = new StringBuilder();
-		StringBuilder preSB = new StringBuilder();
-		StringBuilder inSB = new StringBuilder();
-		StringBuilder postSB = new StringBuilder();
-		preorder(preSB, root);
-		inorder(inSB, root);
-		postorder(postSB, root);
-		answer.append(preSB.toString()+"\n").append(inSB.toString()+"\n").append(postSB.toString());
+		preorder(answer, root);
+		answer.append("\n");
+		inorder(answer, root);
+		answer.append("\n");
+		postorder(answer, root);
 		
 		System.out.println(answer);
 		
