@@ -8,14 +8,12 @@ import java.util.Arrays;
 public class Main_10162_전자레인지 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String answer = "";
 
 		int[] operatingTime = {300, 60, 10}; // {5분, 1분, 10초}
 		int[] pressCount = new int[3];
 		int cookTime = Integer.parseInt(br.readLine());
 
-
-		if(cookTime % 10 > 0){
+		if (cookTime % 10 > 0) {
 			System.out.println(-1);
 			return;
 		}
