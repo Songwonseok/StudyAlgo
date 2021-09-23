@@ -1,18 +1,22 @@
 package Programmers.practice;
 
 public class DP_정수삼각형 {
-	public static int solution(int[][] triangle) {
-        int N = triangle.length;
+	public int solution(int[][] triangle) {
+		int height = triangle.length;
 
-        for(int i=N-1;i>0;i--){
-            for(int j=i;j>0;j--){
-                triangle[i-1][j-1] = triangle[i-1][j-1] + Math.max(triangle[i][j], triangle[i][j-1]); 
-            }
-        }
+		for(int h = height - 1; h > 0 ; h--) {
+			for(int w = 0; w < triangle[h].length - 1; w++) {
+				triangle[h - 1][w] += Math.max(triangle[h][w], triangle[h][w+1]);
+			}
+		}
+
         return triangle[0][0];
     }
 	public static void main(String[] args) {
-		
+		DP_정수삼각형 test = new  DP_정수삼각형();
+		int[][] triangle = {{7}, {3, 8}, {8, 1, 0}, {2, 7, 4, 4}, {4, 5, 2, 6, 5}};
+
+		System.out.println(test.solution(triangle));
 	}
 
 }
