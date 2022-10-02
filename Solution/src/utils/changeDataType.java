@@ -7,7 +7,7 @@ public class changeDataType {
 	}
 	public static void main(String[] args) {
 		//프로그래머스 입력값
-		String data = "[[1, 1, 0], [1, 1, 0], [0, 0, 1]]";
+		String data = "[[7], [3, 8], [8, 1, 0], [2, 7, 4, 4], [4, 5, 2, 6, 5]]";
 		System.out.println(change(data));
 		
 	}

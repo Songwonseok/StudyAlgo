@@ -1,37 +1,72 @@
-package Programmers;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.*;
 
-public class Solution {
-	public static int[] solution(int n, int min, int max, int[] position) {
-		
-		int[] answer= {};
-		answer = new int[n-position.length];
-		
-		HashSet<Integer> set = new HashSet<>();
-		
-		for(int i=0;i<position.length;i++) {
-			set.add(position[i]);
+class Solution {
+	HashMap<String, Integer> map;
+
+
+	public int[] solution(String today, String[] terms, String[] privacies) {
+		map = new HashMap<String, Integer>();
+
+		String[] todayYMD = today.split("\\.");
+
+		int currDays = dateToDays(Integer.parseInt(todayYMD[0]), Integer.parseInt(todayYMD[1]), Integer.parseInt(todayYMD[2]));
+
+		for(String term : terms) {
+			String[] s = term.split(" ");
+
+			map.put(s[0], Integer.parseInt(s[1]));
 		}
-		
-		int size = Math.abs(min)+Math.abs(max)+1;
-		int jump = size/(n-1);
-		
-		int index=0;
-		
-		for(int i=0;i<n-1;i++) {
-			if(set.contains(min+jump*i))
-				continue;
-			answer[index++] = min+jump*i;
+
+		List<Integer> answer = new ArrayList<>();
+
+		for (int i = 0; i < privacies.length; i++) {
+			String[] s = privacies[i].split(" ");
+
+			String[] ymd = getExpireDate(s[0], s[1]).split("\\.");
+
+			if(currDays > dateToDays(Integer.parseInt(ymd[0]), Integer.parseInt(ymd[1]), Integer.parseInt(ymd[2]))) {
+				answer.add(i + 1);
+			}
 		}
-		return answer;
-	}
-	
 
-	public static void main(String[] args) {
-		
-		
-		System.out.println(Arrays.toString(solution(5,-5,3,new int[] {-1,-3,3})));
+
+		return answer.stream().mapToInt(Integer::intValue).toArray();
 	}
 
+	public int dateToDays(int year, int month, int day) {
+		int days = 28 * 12 * (year - 1);
+		days += 28 * (month - 1);
+		days += day;
+
+		return days;
+	}
+
+	public String getExpireDate(String date, String type) {
+		String[] ymd = date.split("\\.");
+		int period = map.get(type);
+
+		int year = Integer.parseInt(ymd[0]);
+		int month = Integer.parseInt(ymd[1]);
+		int day = Integer.parseInt(ymd[2]);
+
+		day--;
+		month += period;
+
+		if(day == 0) {
+			month--;
+			day = 28;
+		}
+
+		if(month == 0) {
+			year--;
+			month = 12;
+		}
+
+		if(month > 12) {
+			year += month / 12;
+			month %= 12;
+		}
+
+		return year + "." + month + "." + day;
+	}
 }
