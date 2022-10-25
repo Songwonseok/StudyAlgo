@@ -1,80 +1,126 @@
 package Programmers;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class Dev2 {
-	long answer;
-	// 2: { 1 }, 3: {7}, 4: {4}, 5: {2, 3, 5}, 6: {0, 6, 9}, 7: {8}
-	int[] numbers = {0, 0, 1, 1, 1, 3, 3, 1};
-	// int[] numbers = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
+	char[][] world;
+	boolean[][] visit;
+	int h, w;
+	int[] dx = {-1, 0, 1, 0}, dy = {0, 1, 0, -1};
 
+	public int solution(String[] maps) {
+		h = maps.length;
+		w = maps[0].length();
 
-	// 2자리수 이상일 경우 0이 맨앞은 x
-	// 모두 사용해야함
-	public long solution(int k) {
-		answer = 0L;
+		world = new char[h][];
+		visit = new boolean[h][w];
 
-		if(k <= 1) {
-			return answer;
+		for (int i = 0; i < h; i++) {
+			world[i] = maps[i].toCharArray();
 		}
 
-		for(int i = 2; i <= 7; i++) {
-			if(k < i) {
-				break;
+		for (int i = 0; i < h; i++) {
+			for (int j = 0; j < w; j++) {
+				if (!visit[i][j] && world[i][j] != '.') {
+					visit[i][j] = true;
+					war(i,j);
+				}
 			}
+		}
 
-			if(i == 6 && k > i) {
-				solve(k - i, numbers[i] - 1);
-				continue;
+		List<Character> winners = getWinners(visit);
+		char winner = winners.get(0);
+		int answer = 0;
+
+		for (int i = 0; i < h; i++) {
+			for (int j = 0; j < w; j++) {
+				if (world[i][j] == winner) {
+					answer++;
+				}
 			}
-
-			solve(k - i, numbers[i]);
 		}
 
 		return answer;
 	}
 
-	public void solve(int k, long acc) {
-		if(k == 1) {
-			return;
-		}
+	public void war(int x, int y) {
+		boolean[][] range = getRange(x,y);
+		List<Character> winners = getWinners(range);
+		drawMap(winners.get(0), range, winners);
+	}
 
-		if(k == 0) {
-			answer += acc;
-			return;
-		}
+	public boolean[][] getRange(int x, int y) {
+		boolean[][] range = new boolean[h][w];
+		Queue<Integer> queue = new LinkedList<>();
+		range[x][y] = true;
+		queue.add(x * w + y);
 
+		while(!queue.isEmpty()) {
+			int cx = queue.peek() / w;
+			int cy = queue.poll() % w;
 
-		for(int i = 2; i <= 7; i++) {
-			if(k < i) {
-				break;
+			for(int d = 0; d < 4; d++) {
+				int nx = cx + dx[d];
+				int ny = cy + dy[d];
+
+				if(nx < 0 || nx >= h || ny < 0 || ny >= w || range[nx][ny] || world[nx][ny] == '.') {
+					continue;
+				}
+
+				range[nx][ny] = true;
+				visit[nx][ny] = true;
+				queue.add(nx * w + ny);
 			}
-
-			solve(k - i, acc * numbers[i]);
 		}
+
+		return range;
 	}
 
-	public void solve2(int k) {
-		if(k == 1) {
-			return;
-		}
+	public List<Character> getWinners(boolean[][] range) {
+		HashMap<Character, Integer> infoMap = new HashMap<>();
 
-		if(k == 0) {
-			answer++;
-			return;
-		}
-
-
-		for(int i = 0; i <= 9; i++) {
-			if(k < numbers[i]) {
-				continue;
+		for (int i = 0; i < h; i++) {
+			for (int j = 0; j < w; j++) {
+				if (range[i][j]) {
+					infoMap.put(world[i][j], infoMap.getOrDefault(world[i][j], 0) + 1);
+				}
 			}
+		}
 
-			solve2(k - numbers[i]);
+		int max = 0;
+
+		for(char key : infoMap.keySet()) {
+			max = Math.max(infoMap.get(key), max);
+		}
+		List<Character> winners = new ArrayList<>();
+
+		for(char key : infoMap.keySet()) {
+			if(infoMap.get(key) == max) {
+				winners.add(key);
+			}
+		}
+
+		Collections.sort(winners, Collections.reverseOrder());
+
+		return winners;
+	}
+
+	public void drawMap(char winner, boolean[][] range, List<Character> winners) {
+		HashSet set = new HashSet(winners);
+
+		for (int i = 0; i < h; i++) {
+			for (int j = 0; j < w; j++) {
+				if (range[i][j] && !set.contains(world[i][j])) {
+					world[i][j] = winner;
+				}
+			}
 		}
 	}
 
-	public static void main(String[] args) {
-		Dev2 s = new Dev2();
-
-		System.out.println(s.solution(11));
-	}
 }
