@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8fe037b4-b037-4d96-a391-3ac2038dc544" name="Changes" comment="style: 경로 변경">
+      <change afterPath="$PROJECT_DIR$/src/Codility/Solution1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Codility/Solution2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Codility/Solution3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Codility/a1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Codility/s4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Programmers/Baemin/Solution1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Programmers/Baemin/Solution2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Programmers/Baemin/Solution4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Programmers/Baemin/Solution6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Programmers/CNS/Solution1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/baek/Main_10419_지각.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/baek/aParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/baek/abc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Study.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Study.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Goorm/NHN/Solution2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Goorm/NHN/Solution2.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2GUbdY5XvbnKyBzlkSui5vKkkE4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/user/Desktop/Study/algo/StudyAlgo/Solution",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8fe037b4-b037-4d96-a391-3ac2038dc544" name="Changes" comment="" />
+      <created>1666446198135</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666446198135</updated>
+      <workItem from="1666446199559" duration="29000" />
+      <workItem from="1666661960260" duration="1697000" />
+      <workItem from="1666680834559" duration="798000" />
+      <workItem from="1668216225392" duration="107000" />
+      <workItem from="1675159750728" duration="16000" />
+      <workItem from="1675923343180" duration="20000" />
+      <workItem from="1677571723860" duration="13000" />
+      <workItem from="1680828063175" duration="746000" />
+      <workItem from="1700058685269" duration="97000" />
+    </task>
+    <task id="LOCAL-00001" summary="style: 경로 변경">
+      <created>1666680984307</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666680984307</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="style: 경로 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="style: 경로 변경" />
+  </component>
+</project>

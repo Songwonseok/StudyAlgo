@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Solution2 {
 	private static int leftMax(int idx, int[] blocks) {
 		int max = 0;
+		int a = 10;
 		
 		for(int i=0;i<idx;i++) {
 			max = Math.max(max, blocks[i]);
