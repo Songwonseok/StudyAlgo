@@ -1,1 +1,10 @@
+# IDE settings
 .metadata
+.idea/
+
+# Build output
+/bin/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
